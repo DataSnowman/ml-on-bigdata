@@ -19,18 +19,13 @@
                 "description": "SQL server admin password"
             },
             "type": "securestring"
-        },
-        "location": {
-            "metadata": {
-                "description": "Location or Region"
-            },
-            "type": "string"
-        }    
+        }
     },
 
     "variables": {
         "namePrefix": "[resourceGroup().name]",
         "uniqueNamePrefix": "[toLower(concat(resourceGroup().name, uniqueString(subscription().subscriptionId)))]",
+        "location": "[resourceGroup().location]",
         "sqlVersion": "2014-04-01",
         "sqlServerName": "[concat(variables('uniqueNamePrefix'),'srv')]",
         "sqlDatabaseName": "[concat(variables('uniqueNamePrefix'),'db')]",
@@ -62,7 +57,7 @@
     "resources": [{
             "name": "[variables('sourceStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "apiVersion": "[variables('stgVersion')]",
             "properties": {
                 "accountType": "[variables('storageAccountType')]"
@@ -71,7 +66,7 @@
         {
             "name": "[variables('targetStorageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "apiVersion": "[variables('stgVersion')]",
             "properties": {
                 "accountType": "[variables('storageAccountType')]"
@@ -80,7 +75,7 @@
         {
         "name": "[variables('sqlServerName')]",
         "type": "Microsoft.Sql/servers",
-        "location": "[parameters('location')]",
+        "location": "[variables('location')]",
         "apiVersion": "[variables('sqlVersion')]",
         "properties": {
             "administratorLogin": "[parameters('sqlServerUsername')]",
@@ -90,7 +85,7 @@
         "resources": [{
             "name": "[variables('sqlDatabaseName')]",
             "type": "databases",
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "apiVersion": "[variables('sqlVersion')]",
             "dependsOn": [
                 "[variables('sqlServerResourceId')]"
@@ -104,7 +99,7 @@
         }, {
             "apiVersion": "[variables('sqlVersion')]",
             "type": "firewallrules",
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "name": "AllowAllWindowsAzureIps",
             "dependsOn": [
                 "[variables('sqlServerResourceId')]"
@@ -118,15 +113,15 @@
         "apiVersion": "[variables('sbVersion')]",
         "name": "[variables('sbNameIngest')]",
         "type": "Microsoft.Eventhub/namespaces",
-        "location": "[parameters('location')]",
+        "location": "[variables('location')]",
         "properties": {
-            "region": "[parameters('location')]"
+            "region": "[variables('location')]"
         },
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[variables('ehInNameIngest')]",
             "type": "eventHubs",
-            "location": "[parameters('location')]",
+            "location": "[variables('location')]",
             "dependsOn": [
                 "[concat('Microsoft.Eventhub/namespaces/', variables('sbNameIngest'))]"
             ],
@@ -137,7 +132,7 @@
                 "apiVersion": "2015-08-01",
                 "name": "[variables('ehSendPolicyKeyName')]",
                 "type": "authorizationRules",
-                "location": "[parameters('location')]",
+                "location": "[variables('location')]",
                 "dependsOn": [
                     "[variables('ehResourceIdIngest')]"
                 ],
@@ -152,7 +147,7 @@
     },
     {
         "apiVersion": "2018-04-01",
-        "location": "[parameters('location')]",
+        "location": "[variables('location')]",
         "name": "[parameters('workspaceName')]",
         "sku": {
             "name": "[variables('tier')]"

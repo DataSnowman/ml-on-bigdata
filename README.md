@@ -71,7 +71,7 @@ After about 3 minutes the deployment should complete.  Click the green link `Man
 
 4. Next run the following command to provision the Azure resources:
 ```
-az group deployment create -g mlbigdata --template-file azuredeploy.json --parameters @parameters-mlbigdata.json
+az group deployment create -g mlbigdata --template-file azureclideploy.json --parameters @parameters-mlbigdata.json
 ```
 Once the provisioning is finished, we can run `az resource list -g mlbigdata -o table` to check what resources were launched. Our listed resources includes: 
     * 2 storage accounts
