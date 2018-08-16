@@ -1,11 +1,12 @@
-## Welcome to a hands-on workshop on Machine Learning on Big Data using Azure Databricks
+## Welcome to a hands-on workshop on **Machine Learning on Big Data** using Azure Databricks
 
 ### The datasets and base notebooks were provided by Azure Databricks
 During the Azure Databricks Roadshow the following datasets and base notebooks were provided by Azure Databricks
 
 The scenario is around a fictional Electronics Retail Company, "Initech", with brick & mortar locations as well as an online marketplace.  The architecture will look similar to this but will incorporate the use of a single Azure Databricks cluster instead of the 4 clusters in the diagram.  The workshop will also use an Azure SQL database instead of Cosmos DB.
 
-![abd-uap](https://raw.githubusercontent.com/Azure/ml-on-bigdata/master/ml-on-bigdata/images/adb-uap.png)
+![abd-uap](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/adb-uap.png)
+
 
 ## Prerequisites
 
@@ -14,7 +15,7 @@ To deploy the Azure resources required for this lab, you will need:
 1. An [Azure account](https://portal.azure.com)
 2. Clone this GitHub repository using Git and the following commands: 
 
-    `git clone https://github.com/Azure/ml-on-bigdata.git`
+    `git clone https://github.com/DataSnowman/ml-on-bigdata.git`
 
 **Note** that you will be deploying a number of Azure resources into your Azure Subscription when either clicking on the [Deploy to Azure](https://github.com/Azure/DataScienceVM/blob/master/Tutorials/MLADS-spring-2018/setup/README.md) button, or by alternatively deploying by using an ARM template and parameters file via the Azure CLI.
 
@@ -32,7 +33,7 @@ Note: If you encounter issues with resources please check by running the followi
 
 You should get some output that looks like this:
 
-![list-usage](https://raw.githubusercontent.com/Azure/ml-on-bigdata/master/ml-on-bigdata/images/list-usage.png)
+![list-usage](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/list-usage.png)
 
 ## Choices for Provisioning
 
