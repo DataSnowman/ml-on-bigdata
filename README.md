@@ -47,7 +47,7 @@ After you have checked for the availability of resources in your subscription.
 
   `az group create -n mlbigdata -l southcentralus`
 
-2) Click on the [Deploy to Azure](https://github.com/DataSnowman/ml-on-bigdata/blob/master/setup/README.md) button on the README
+2) Click on the [Deploy to Azure](https://github.com/DataSnowman/ml-on-bigdata/blob/master/setup/README.md) button on the README in the setup folder.
 
 Choose your Subscription, and enter a Resource Group Name, Azure Databricks Workspace Name, SQL Server Username, and SQL Server Password.  Then click the `Next` button.
 
@@ -79,10 +79,10 @@ Once the provisioning is finished, we can run `az resource list -g mlbigdata -o 
     * 1 Databricks workspace
     * 1 SQL Database.
 
-Run the cells individually by highlighting the cell and entering `Ctrl-Enter`
 
 
-Hope you enjoyed this tutorial.
+
+Hope you enjoyed this workshop.
 
 ## Thank you to the members of Databricks that created the notebooks for this tutorial:
 * **Name One** 
