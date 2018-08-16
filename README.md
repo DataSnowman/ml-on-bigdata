@@ -47,7 +47,19 @@ After you have checked for the availability of resources in your subscription.
 
   `az group create -n mlbigdata -l southcentralus`
 
-2) Click on the [Deploy to Azure](https://github.com/Azure/DataScienceVM/blob/master/Tutorials/MLADS-spring-2018/setup/README.md) button on the README 
+2) Click on the [Deploy to Azure](https://github.com/DataSnowman/ml-on-bigdata/blob/master/setup/README.md) button on the README
+
+Choose your Subscription, and enter a Resource Group Name, Azure Databricks Workspace Name, SQL Server Username, and SQL Server Password.  Then click the `Next` button.
+
+![setup](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/setup.png)
+
+Preview the Resource Types and click the `Deploy` button.
+
+![preview](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/preview.png)
+
+After about 3 minutes the deployment should complete.  Click the green link `Manage` your resources to open the resource group in the Azure portal.
+
+![deploy](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/deploy.png)
 
 ### Provisioning using the Azure CLI
 
@@ -59,7 +71,7 @@ After you have checked for the availability of resources in your subscription.
 
 4. Next run the following command to provision the Azure resources:
 ```
-az group deployment create -g mlbigdata --template-file CreateResourcesArm.json --parameters @parameters-mlbigdata.json
+az group deployment create -g mlbigdata --template-file azuredeploy.json --parameters @parameters-mlbigdata.json
 ```
 Once the provisioning is finished, we can run `az resource list -g mlbigdata -o table` to check what resources were launched. Our listed resources includes: 
     * 2 storage accounts
