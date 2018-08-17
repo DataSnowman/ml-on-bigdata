@@ -27,13 +27,7 @@ Note: If you encounter issues with resources please check by running the followi
 
   `az account list-locations`
   
-  `az vm list-sizes -l southcentralus`
-
-  `az vm list-usage --location southcentralus -o table`
-
-You should get some output that looks like this:
-
-![list-usage](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/list-usage.png)
+  `az provider show --namespace Microsoft.Databricks --query "resourceTypes[?resourceType=='workspaces'].locations | [0]" --out table`
 
 ## Choices for Provisioning
 
@@ -79,6 +73,60 @@ Once the provisioning is finished, we can run `az resource list -g mlbigdata -o 
     * 1 Databricks workspace
     * 1 SQL Database.
 
+## Copying the source data
+
+1. Use Microsoft Azure Storage Explorer to copy the blob container
+
+You can download Microsoft Azure Storage Explorer [HERE] for Linux, Mac, or Windows (https://azure.microsoft.com/en-us/features/storage-explorer/)
+
+Once you install and open it click on the connection plug icon and choose `Use a connection string`.  Click `Next`
+
+![connect](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/connect.png)
+
+Copy the following connection string
+**FixThis**
+```
+**FixThis**SharedAccessSignature=sv=2018-03-28&ss=bfqt&srt=sco&sp=rl&st=2018-08-17T22%3A09%3A30Z&se=2020-08-18T22%3A09%3A00Z&sig=J1JF1HV7*FixThis*clhrQWiXfaKC2w8KFj2M%3D;BlobEndpoint=https://ainellarealta.blob.core.windows.net/;FileEndpoint=https://ainellarealta.file.core.windows.net/;QueueEndpoint=https://ainellarealta.queue.core.windows.net/;TableEndpoint=https://ainellarealta.table.core.windows.net/;
+```
+Paste it into the Connection string dialog box. Click `Next`
+
+![attach](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/attach.png)
+
+Click `Connect`
+
+![summary](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/summary.png)
+
+The Storage Account container should now be available under storage accounts.  Right click on the container named `source` and choose `Copy Blob Container`
+
+![container](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/container.png)
+
+Click on the connection plug icon and this time choose `Add an Azure Account`.  Click `Sign in...`
+
+![singin](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/singin.png)
+
+Sign in to your Azure Account and navigate to the `source`plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blog Container`
+
+![paste](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/paste.png)
+
+The Activities section of Microsoft Azure Storage Explorer should look something like this
+
+![activities](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/activities.png)
+
+
+## Configuring the event hub for streaming
+
+
+## Importing and running Databricks notebooks
+
+### Importing notebooks using the dbc file
+
+### Running the Data Engineer notebooks
+
+### Running the Data Scientist notebooks
+
+### Running the Notebooks loading SQL
+
+## Connecting to Databricks and SQL Database using Power BI
 
 
 
