@@ -77,7 +77,7 @@ Once the provisioning is finished, we can run `az resource list -g mlbigdata -o 
 
 1. Use Microsoft Azure Storage Explorer to copy the blob container
 
-You can download Microsoft Azure Storage Explorer [HERE] for Linux, Mac, or Windows (https://azure.microsoft.com/en-us/features/storage-explorer/)
+You can download Microsoft Azure Storage Explorer [HERE](https://azure.microsoft.com/en-us/features/storage-explorer/) for Linux, Mac, or Windows 
 
 Once you install and open it click on the connection plug icon and choose `Use a connection string`.  Click `Next`
 
@@ -102,7 +102,7 @@ The Storage Account container should now be available under storage accounts.  R
 
 Click on the connection plug icon and this time choose `Add an Azure Account`.  Click `Sign in...`
 
-![singin](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/singin.png)
+![signin](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/signin.png)
 
 Sign in to your Azure Account and navigate to the `source`plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blog Container`
 
