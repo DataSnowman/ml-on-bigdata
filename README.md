@@ -1,4 +1,4 @@
-## Welcome to a hands-on workshop on **Machine Learning on Big Data** using Azure Databricks
+## Welcome to a hands-on workshop for **Machine Learning on Big Data** using Azure Databricks
 
 ### The datasets and base notebooks were provided by Azure Databricks
 During the Azure Databricks Roadshow the following datasets and base notebooks were provided by Azure Databricks
@@ -104,7 +104,7 @@ Click on the connection plug icon and this time choose `Add an Azure Account`.  
 
 ![signin](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/signin.png)
 
-Sign in to your Azure Account and navigate to the `source`plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blog Container`
+Sign in to your Azure Account and navigate to the `source`plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blob Container`
 
 ![paste](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/paste.png)
 
