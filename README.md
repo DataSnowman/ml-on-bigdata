@@ -1,11 +1,12 @@
 ## Welcome to a hands-on workshop for **Machine Learning on Big Data** using Azure Databricks
 
 ### The datasets and base notebooks were provided by Azure Databricks
-During the Azure Databricks Roadshow the following datasets and base notebooks were provided by Azure Databricks
 
-The scenario is around a fictional Electronics Retail Company, "Initech", with brick & mortar locations as well as an online marketplace.  The architecture will look similar to this but will incorporate the use of a single Azure Databricks cluster instead of the 4 clusters in the diagram.  The workshop will also use an Azure SQL database instead of Cosmos DB.
+You can find these example notebooks [here](https://databricks.com/resources/type/example-notebooks)
 
-![abd-uap](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/adb-uap.png)
+The dataset has been downloaded from [Kaggle](https://www.kaggle.com/secareanualin/football-events). It provides a granular view of 9,074 games, from the biggest 5 European football (soccer) leagues: England, Spain, Germany, Italy, France, from 2011/2012 season to 2016/2017 season as of 25.01.2017.  In this example the datasets can be copied from an Azure Storage account.  Details are below in the section `Copying the source data`.
+
+![European-Soccer-Events-Analysis-Diagram](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/European-Soccer-Events-Analysis-Diagram.png)
 
 
 ## Prerequisites
@@ -84,9 +85,10 @@ Once you install and open it click on the connection plug icon and choose `Use a
 ![connect](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/connect.png)
 
 Copy the following connection string
-**FixThis**
+
 ```
-**FixThis**SharedAccessSignature=sv=2018-03-28&ss=bfqt&srt=sco&sp=rl&st=2018-08-17T22%3A09%3A30Z&se=2020-08-18T22%3A09%3A00Z&sig=J1JF1HV7*FixThis*clhrQWiXfaKC2w8KFj2M%3D;BlobEndpoint=https://ainellarealta.blob.core.windows.net/;FileEndpoint=https://ainellarealta.file.core.windows.net/;QueueEndpoint=https://ainellarealta.queue.core.windows.net/;TableEndpoint=https://ainellarealta.table.core.windows.net/;
+BlobEndpoint=https://ainellarealta.blob.core.windows.net/;QueueEndpoint=https://ainellarealta.queue.core.windows.net/;FileEndpoint=https://ainellarealta.file.core.windows.net/;TableEndpoint=https://ainellarealta.table.core.windows.net/;SharedAccessSignature=sv=2017-11-09&ss=bfqt&srt=sco&sp=rl&se=2019-12-31T07:01:12Z&st=2018-09-10T00:01:12Z&spr=https&sig=rePvURzoJp6H%2F2%2BcnAzTDCdyk4MdynWNskGkQ1uAbg4%3D
+
 ```
 Paste it into the Connection string dialog box. Click `Next`
 
@@ -96,7 +98,7 @@ Click `Connect`
 
 ![summary](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/summary.png)
 
-The Storage Account container should now be available under storage accounts.  Right click on the container named `source` and choose `Copy Blob Container`
+The Storage Account container should now be available under storage accounts.  Right click on the container named `football` and choose `Copy Blob Container`
 
 ![container](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/container.png)
 
@@ -104,7 +106,7 @@ Click on the connection plug icon and this time choose `Add an Azure Account`.  
 
 ![signin](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/signin.png)
 
-Sign in to your Azure Account and navigate to the `source`plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blob Container`
+Sign in to your Azure Account and navigate to the `source` plus hash characters storage account created during the azure deployment.  Right click and choose `Paste Blob Container`
 
 ![paste](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/paste.png)
 
@@ -112,13 +114,32 @@ The Activities section of Microsoft Azure Storage Explorer should look something
 
 ![activities](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/activities.png)
 
+## Create Azure Databricks Cluster
 
-## Configuring the event hub for streaming
+Launch the Azure Databricks Workspace by clicking on the `Launch Workspace` button in the Azure Portal
 
+![launchWorkspace](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/launchWorkspace.png)
+
+Click on `Clusters` in the left navigation bar and click on the `+ Create Cluster` button
+
+![createCluster](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/createCluster.png)
+
+Name your cluster, choose the Standard Cluster Mode, 4.2 Databricks Runtime Version (or newer), Python Version 3, and reduce the max workers to 3.  Click the `Create Cluster` button.
+
+![cluster](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/cluster.png)
 
 ## Importing and running Databricks notebooks
 
 ### Importing notebooks using the dbc file
+
+Click on `Workspace` in the left navigation bar and right-click on the user and select `Import`
+
+![import](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/import.png)
+
+Select the dbc file that was cloned from the GitHub repo and click the `Import` button
+
+![importNotebooks](https://raw.githubusercontent.com/DataSnowman/ml-on-bigdata/master/images/importNotebooks.png)
+
 
 ### Running the Data Engineer notebooks
 
