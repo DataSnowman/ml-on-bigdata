@@ -14,7 +14,8 @@ The dataset has been downloaded from [Kaggle](https://www.kaggle.com/secareanual
 To deploy the Azure resources required for this lab, you will need:
 
 1. An [Azure account](https://portal.azure.com)
-2. Clone this GitHub repository using Git and the following commands: 
+2. Microsoft [Azure Storage Explorer](https://azure.microsoft.com/en-au/features/storage-explorer/)
+3. Clone this GitHub repository using Git and the following commands: 
 
     `git clone https://github.com/DataSnowman/ml-on-bigdata.git`
 
